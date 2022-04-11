@@ -17,13 +17,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // @formatter:off
         http.authorizeRequests()
+                // permit to all
                 .mvcMatchers("/").permitAll()
 //                .mvcMatchers(HttpMethod.POST,"/api/v1/customers").permitAll()
                 .mvcMatchers("/api/v1/customers").permitAll()
                 .mvcMatchers("/about").permitAll()
                 .mvcMatchers("/login").permitAll()
-                .mvcMatchers("/customers").permitAll()
-                .mvcMatchers("/error").permitAll()
+//                .mvcMatchers("/customers").permitAll()
+//                .mvcMatchers("/error").permitAll()
                 .and().authorizeRequests()
 //                .mvcMatchers("/customers").permitAll()
 //                .mvcMatchers("/deleteEmployee/**").hasAnyRole("SUPERADMIN")
@@ -33,10 +34,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .mvcMatchers("/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
                 .anyRequest().authenticated()
                 .and().cors().and().csrf().disable()
+                // login
                 .formLogin()
-                .loginPage("/login")
-                .permitAll()
+                .loginPage("/login").permitAll()
+                .defaultSuccessUrl("/main", true)
                 .and()
+                // logout
                 .logout()
                 .permitAll();
         // @formatter:on

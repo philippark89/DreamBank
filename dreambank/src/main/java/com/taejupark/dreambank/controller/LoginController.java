@@ -13,6 +13,11 @@ public class LoginController {
         return "login";
     }
 
+    @GetMapping("/main") // -> actual domain name
+    public String mainPage() {
+        return "postLogin"; // -> matching html file name
+    }
+
     @GetMapping("/logout")
     public String logout(HttpServletRequest request){
         HttpSession httpSession = request.getSession();

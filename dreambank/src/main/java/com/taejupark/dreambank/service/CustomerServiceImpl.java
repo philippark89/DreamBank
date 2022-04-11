@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -39,8 +40,8 @@ public class CustomerServiceImpl implements CustomerService {
 
         try {
             customer = repository.findById(id).get();
-        } catch (EntityNotFoundException e) {
-            throw new CustomerNotFoundException();
+        } catch (NoSuchElementException e) {
+            throw new CustomerNotFoundException(id);
         }
 
         return customer;
