@@ -66,4 +66,6 @@
     - Spring security updated
 
 - Day 7
-    - working
+    - Added login page error/info messages when logged in or logged out.
+    - Created postLogin page that shows user duplicated main page but more menus
+    - Working the duplicate pages before / after login.
