@@ -69,3 +69,9 @@
     - Added login page error/info messages when logged in or logged out.
     - Created postLogin page that shows user duplicated main page but more menus
     - Working the duplicate pages before / after login.
+
+- Day 8
+    - User can create account, login, and logout.
+    - User authentication is working properly.
+    - Working on User access to business models(Customer's bank account)
+    - Main page separated depends on user logged in or not.

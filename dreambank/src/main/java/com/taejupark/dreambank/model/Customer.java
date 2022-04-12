@@ -19,6 +19,8 @@ public class Customer {
     private String lastName;
     @NotNull
     private String postcode;
+    @NotNull
+    private String email;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "bank_account_id", referencedColumnName = "id")
     @JsonIgnore
