@@ -1,5 +1,6 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <title>Dream Bank</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Untitled</title>
@@ -23,7 +24,8 @@
             <button class="btn mt-3">Login</button>
 <!--            <div><input type="submit" value="Sign In"/></div>-->
         </form>
-        <div class="text-center fs-6"> <a href="#">Sign up</a> </div>
+        <div class="text-center fs-6"> <a href="/registration">Sign up</a> </div>
+        <div class="text-center fs-6 mt-3"> <a href="/">Back to main</a> </div>
 
 <!--        login / logout message handler-->
         <div th:if="${param.error}">

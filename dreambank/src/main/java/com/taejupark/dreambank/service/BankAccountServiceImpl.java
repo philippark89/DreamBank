@@ -1,14 +1,12 @@
 package com.taejupark.dreambank.service;
 
 import com.taejupark.dreambank.model.BankAccount;
-import com.taejupark.dreambank.model.Customer;
 import com.taejupark.dreambank.repository.BankAccountRepository;
 import com.taejupark.dreambank.service.exception.BankAccountNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
-import javax.swing.text.html.parser.Entity;
 
 @Service
 public class BankAccountServiceImpl implements BankAccountService{
