@@ -75,3 +75,8 @@
     - User authentication is working properly.
     - Working on User access to business models(Customer's bank account)
     - Main page separated depends on user logged in or not.
+
+- 04/13/2022 (Day 9)
+    - User model and Customer(Business side) is working properly.
+    - Modifying Admin page that can pull the whole customer list and have a action either delete or update the specific customer.
+    - Working on CRUD operation each roles
