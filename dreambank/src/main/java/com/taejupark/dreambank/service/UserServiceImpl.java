@@ -1,9 +1,13 @@
-package com.taejupark.dreambank.security;
+package com.taejupark.dreambank.service;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+import com.taejupark.dreambank.model.Role;
+import com.taejupark.dreambank.model.User;
+import com.taejupark.dreambank.repository.UserRepository;
+import com.taejupark.dreambank.security.UserRegistrationDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

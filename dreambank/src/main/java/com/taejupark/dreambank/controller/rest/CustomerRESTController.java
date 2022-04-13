@@ -1,4 +1,4 @@
-package com.taejupark.dreambank.controller;
+package com.taejupark.dreambank.controller.rest;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 

@@ -17,16 +17,19 @@ public class Customer {
     private String firstName;
     @NotNull
     private String lastName;
-    @NotNull
-    private String postcode;
-    @NotNull
-    private String email;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "bank_account_id", referencedColumnName = "id")
     @JsonIgnore
     private BankAccount bankAccount;
 
     public Customer() {}
+
+    public Customer(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.bankAccount = new BankAccount();
+    }
 
     public long getId() {
         return id;
@@ -52,14 +55,6 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public String getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
-    }
-
     public BankAccount getBankAccount() {
         return bankAccount;
     }
@@ -68,17 +63,18 @@ public class Customer {
         this.bankAccount = bankAccount;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return id == customer.id && Objects.equals(firstName, customer.firstName) && Objects.equals(lastName, customer.lastName) && Objects.equals(postcode, customer.postcode) && Objects.equals(bankAccount, customer.bankAccount);
+        return id == customer.id && Objects.equals(firstName, customer.firstName) && Objects.equals(lastName, customer.lastName) && Objects.equals(bankAccount, customer.bankAccount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, postcode, bankAccount);
+        return Objects.hash(id, firstName, lastName, bankAccount);
     }
 
     @Override
@@ -87,7 +83,6 @@ public class Customer {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", postcode='" + postcode + '\'' +
                 ", bankAccount=" + bankAccount +
                 '}';
     }

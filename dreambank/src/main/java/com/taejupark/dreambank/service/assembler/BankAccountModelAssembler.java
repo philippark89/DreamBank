@@ -2,8 +2,8 @@ package com.taejupark.dreambank.service.assembler;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
-import com.taejupark.dreambank.controller.BankAccountRESTController;
-import com.taejupark.dreambank.controller.CustomerRESTController;
+import com.taejupark.dreambank.controller.rest.BankAccountRESTController;
+import com.taejupark.dreambank.controller.rest.CustomerRESTController;
 import com.taejupark.dreambank.model.BankAccount;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;

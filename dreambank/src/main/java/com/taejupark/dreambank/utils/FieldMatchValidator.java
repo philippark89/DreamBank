@@ -1,4 +1,4 @@
-package com.taejupark.dreambank.security;
+package com.taejupark.dreambank.utils;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

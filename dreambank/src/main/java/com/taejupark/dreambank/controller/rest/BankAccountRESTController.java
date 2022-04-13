@@ -1,4 +1,4 @@
-package com.taejupark.dreambank.controller;
+package com.taejupark.dreambank.controller.rest;
 
 import com.taejupark.dreambank.model.BankAccount;
 import com.taejupark.dreambank.model.Transaction;

@@ -1,6 +1,13 @@
-package com.taejupark.dreambank.security;
+package com.taejupark.dreambank.controller;
 
 import javax.validation.Valid;
+
+import com.taejupark.dreambank.model.BankAccount;
+import com.taejupark.dreambank.model.Customer;
+import com.taejupark.dreambank.model.User;
+import com.taejupark.dreambank.security.UserRegistrationDto;
+import com.taejupark.dreambank.service.CustomerService;
+import com.taejupark.dreambank.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +23,9 @@ public class UserRegistrationController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private CustomerService customerService;
 
     @ModelAttribute("user")
     public UserRegistrationDto userRegistrationDto() {
@@ -39,8 +49,25 @@ public class UserRegistrationController {
             return "registration";
         }
 
-        userService.save(userDto);
+        User user = userService.save(userDto);
+        customerService.newCustomer(createCustomerFromUserDTO(userDto, user.getId()));
         return "redirect:/registration?success";
+    }
+
+    private Customer createCustomerFromUserDTO(UserRegistrationDto userDto, Long id) {
+        // initialize the customer entity when user create the account
+        Customer customer = new Customer();
+        BankAccount bankAccount = new BankAccount();
+
+        bankAccount.setId(id);
+        bankAccount.setBalance(0);
+
+        customer.setFirstName(userDto.getFirstName());
+        customer.setLastName(userDto.getLastName());
+        customer.setId(id);
+        customer.setBankAccount(bankAccount);
+
+        return customer;
     }
 }
 

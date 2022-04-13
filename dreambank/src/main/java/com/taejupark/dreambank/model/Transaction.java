@@ -1,5 +1,7 @@
 package com.taejupark.dreambank.model;
 
+import com.taejupark.dreambank.utils.TransactionType;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 

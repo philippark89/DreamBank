@@ -3,6 +3,7 @@ package com.taejupark.dreambank.controller;
 import com.taejupark.dreambank.model.BankAccount;
 import com.taejupark.dreambank.model.Customer;
 import com.taejupark.dreambank.service.CustomerService;
+import com.taejupark.dreambank.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,10 +15,12 @@ import javax.validation.Valid;
 @Controller
 public class CustomerController {
     private CustomerService cs;
+    private UserService userService;
 
     @Autowired
-    public CustomerController(CustomerService cs) {
+    public CustomerController(CustomerService cs, UserService userService) {
         this.cs = cs;
+        this.userService = userService;
     }
 
     @GetMapping("/customers")
@@ -26,6 +29,7 @@ public class CustomerController {
         return "customers";
     }
 
+    // handling by create account
     @GetMapping("/newCustomer")
     public String newCustomerForm(Customer customer, Model model) {
         Customer newCustomer = new Customer();
@@ -46,7 +50,8 @@ public class CustomerController {
 
     @GetMapping("/deleteCustomer/{id}")
     public String deleteCustomer(@PathVariable(value = "id") long id) {
-        cs.deleteCustomerById(id);
+//        cs.deleteCustomerById(id);
+
 
         return "redirect:/customers";
     }

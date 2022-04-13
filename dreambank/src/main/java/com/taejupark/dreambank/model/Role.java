@@ -1,4 +1,4 @@
-package com.taejupark.dreambank.security;
+package com.taejupark.dreambank.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

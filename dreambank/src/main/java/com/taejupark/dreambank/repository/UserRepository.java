@@ -1,5 +1,6 @@
-package com.taejupark.dreambank.security;
+package com.taejupark.dreambank.repository;
 
+import com.taejupark.dreambank.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
