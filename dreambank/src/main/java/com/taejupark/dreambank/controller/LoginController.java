@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
+import java.util.Objects;
 
 @Controller
 public class LoginController {
@@ -27,16 +28,24 @@ public class LoginController {
 
     @GetMapping("/main") // -> actual domain name
     public String mainPage(Principal principal, Model model) {
-        User user = userRepository.findByEmail(principal.getName());
-        model.addAttribute("email", principal.getName());
-        model.addAttribute("firstname", user.getFirstName());
-        return "postLogin"; // -> matching html file name
+        String url = "/user/postLogin";
+
+        try {
+            User user = userRepository.findByEmail(principal.getName());
+            model.addAttribute("email", principal.getName());
+            model.addAttribute("firstname", user.getFirstName());
+        } catch (NullPointerException e) {
+            url = "/admin/adminMain";
+        }
+
+        return url; // -> matching html file name
     }
 
     @GetMapping("/logout")
-    public String logout(HttpServletRequest request){
+    public String logout(HttpServletRequest request) {
         HttpSession httpSession = request.getSession();
         httpSession.invalidate();
         return "redirect:/";
     }
+
 }

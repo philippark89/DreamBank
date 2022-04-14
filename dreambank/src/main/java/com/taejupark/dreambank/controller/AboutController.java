@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AboutController {
-    @GetMapping("/about")
+    @GetMapping("/about") // -> Domain name
     public String aboutPage() {
-        return "about";
+        return "/permitAll/about"; // -> File Location
     }
 }

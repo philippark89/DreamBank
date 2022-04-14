@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Date;
+import java.util.Random;
+
 @Controller
 @RequestMapping("/registration")
 public class UserRegistrationController {
@@ -56,14 +59,17 @@ public class UserRegistrationController {
 
     private Customer createCustomerFromUserDTO(UserRegistrationDto userDto, Long id) {
         // initialize the customer entity when user create the account
+        Random random = new Random();
         Customer customer = new Customer();
         BankAccount bankAccount = new BankAccount();
 
         bankAccount.setId(id);
-        bankAccount.setBalance(0);
+        bankAccount.setBalance((double) Math.round((random.nextDouble() * 10000) * 100) / 100);
 
         customer.setFirstName(userDto.getFirstName());
         customer.setLastName(userDto.getLastName());
+        customer.setEmail(userDto.getEmail());
+        customer.setCreatedDate(new Date());
         customer.setId(id);
         customer.setBankAccount(bankAccount);
 

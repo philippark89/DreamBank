@@ -80,3 +80,7 @@
     - User model and Customer(Business side) is working properly.
     - Modifying Admin page that can pull the whole customer list and have a action either delete or update the specific customer.
     - Working on CRUD operation each roles
+
+- 04/14/2022 (Day 10) (BackEnd 85%, FrontEnd 50%)
+    - User have 3 different menus to check their account information, balance, activities.
+    - Was able to pull data by current session email address.

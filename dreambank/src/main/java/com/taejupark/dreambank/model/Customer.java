@@ -1,11 +1,10 @@
 package com.taejupark.dreambank.model;
 
-
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +16,10 @@ public class Customer {
     private String firstName;
     @NotNull
     private String lastName;
+    @NotNull
+    private String email;
+    @NotNull
+    private Date createdDate;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "bank_account_id", referencedColumnName = "id")
@@ -53,6 +56,22 @@ public class Customer {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
     public BankAccount getBankAccount() {

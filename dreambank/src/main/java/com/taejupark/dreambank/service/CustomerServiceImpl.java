@@ -4,6 +4,7 @@ import com.taejupark.dreambank.model.Customer;
 import com.taejupark.dreambank.repository.CustomerRepository;
 import com.taejupark.dreambank.service.exception.CustomerNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -44,5 +45,10 @@ public class CustomerServiceImpl implements CustomerService {
         }
 
         return customer;
+    }
+
+    @Override
+    public Customer getCustomerByEmail(String email) {
+        return repository.findByEmail(email).get();
     }
 }

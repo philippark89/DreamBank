@@ -26,7 +26,7 @@ public class CustomerController {
     @GetMapping("/customers")
     public String getAllCustomers(Model model) {
         model.addAttribute("customerList", cs.getAllCustomer());
-        return "customers";
+        return "/admin/customers";
     }
 
     // handling by create account
@@ -45,7 +45,7 @@ public class CustomerController {
         customer.setBankAccount(new BankAccount());
         cs.newCustomer(customer);
 
-        return "redirect:/customers";
+        return "redirect:/admin/customers";
     }
 
     @GetMapping("/deleteCustomer/{id}")
@@ -53,7 +53,7 @@ public class CustomerController {
 //        cs.deleteCustomerById(id);
 
 
-        return "redirect:/customers";
+        return "redirect:/admin/customers";
     }
 
     @GetMapping("/updateCustomer/{id}")
@@ -62,7 +62,7 @@ public class CustomerController {
 
         model.addAttribute("customer", customer);
 
-        return "updateCustomer";
+        return "/admin/updateCustomer";
     }
 
 }
