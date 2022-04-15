@@ -84,3 +84,8 @@
 - 04/14/2022 (Day 10) (BackEnd 85%, FrontEnd 50%)
     - User have 3 different menus to check their account information, balance, activities.
     - Was able to pull data by current session email address.
+
+- 04/14/2022 (Day 11) (BackEnd 88%, FrontEnd 60%)
+    - Account page done.
+    - Balance page, manage to pull transaction object throught user input from balance page.
+    - Learned how the Thymeleaf communicate between MVC.
