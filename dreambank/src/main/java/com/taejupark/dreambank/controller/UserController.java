@@ -1,10 +1,7 @@
 package com.taejupark.dreambank.controller;
 
 import com.taejupark.dreambank.model.Customer;
-import com.taejupark.dreambank.model.User;
-import com.taejupark.dreambank.repository.UserRepository;
 import com.taejupark.dreambank.service.CustomerService;
-import com.taejupark.dreambank.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +27,6 @@ public class UserController {
                         String.valueOf(calendar.get(Calendar.DAY_OF_MONTH)) + "-" +
                         String.valueOf(calendar.get(Calendar.YEAR));
 
-        model.addAttribute("userBalance", customer.getBankAccount().getBalance());
         model.addAttribute("userFirstName", customer.getFirstName());
         model.addAttribute("userLastName", customer.getLastName());
         model.addAttribute("userEmail", customer.getEmail());
@@ -39,13 +35,13 @@ public class UserController {
         return user + "/account"; // -> File Location
     }
 
-    @GetMapping(user + "/activities")
-    public String activities() {
-        return user + "/activities";
-    }
-
     @GetMapping(user + "/balance")
     public String balance() {
         return user + "/balance";
+    }
+
+    @GetMapping(user + "/activities")
+    public String activities() {
+        return user + "/activities";
     }
 }
