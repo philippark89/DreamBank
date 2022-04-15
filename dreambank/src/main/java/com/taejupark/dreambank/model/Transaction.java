@@ -1,9 +1,8 @@
 package com.taejupark.dreambank.model;
 
-import com.taejupark.dreambank.utils.TransactionType;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Entity
 public class Transaction {
@@ -14,22 +13,47 @@ public class Transaction {
     @JoinColumn(name = "bank_account_id", nullable = false)
     private BankAccount bankAccount;
     @NotNull
+    private Date timeStamp;
+    @NotNull
+    private String transactionType;
+    @NotNull
     private double amount;
     @NotNull
-    private long timeStamp;
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    private TransactionType transactionType;
+    private String note;
 
     public Transaction() {
     }
 
-    public long getTransaction_id() {
+    public long getId() {
         return id;
     }
 
-    public void setTransaction_id(long transaction_id) {
-        this.id = transaction_id;
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public BankAccount getBankAccount() {
+        return bankAccount;
+    }
+
+    public void setBankAccount(BankAccount bankAccount) {
+        this.bankAccount = bankAccount;
+    }
+
+    public Date getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(Date timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
+    public String getTransactionType() {
+        return transactionType;
+    }
+
+    public void setTransactionType(String transactionType) {
+        this.transactionType = transactionType;
     }
 
     public double getAmount() {
@@ -40,19 +64,23 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public BankAccount getBankAccount() {
-        return bankAccount;
+    public String getNote() {
+        return note;
     }
 
-    public void setBankAccounts(BankAccount bankAccount) {
-        this.bankAccount = bankAccount;
+    public void setNote(String note) {
+        this.note = note;
     }
 
-    public long getTimeStamp() {
-        return timeStamp;
-    }
-
-    public void setTimeStamp(long date) {
-        this.timeStamp = date;
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "id=" + id +
+                ", bankAccount=" + bankAccount +
+                ", timeStamp=" + timeStamp +
+                ", transactionType='" + transactionType + '\'' +
+                ", amount=" + amount +
+                ", note='" + note + '\'' +
+                '}';
     }
 }

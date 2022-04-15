@@ -53,7 +53,7 @@ public class UserRegistrationController {
         }
 
         User user = userService.save(userDto);
-        customerService.newCustomer(createCustomerFromUserDTO(userDto, user.getId()));
+        customerService.saveCustomer(createCustomerFromUserDTO(userDto, user.getId()));
         return "redirect:/registration?success";
     }
 

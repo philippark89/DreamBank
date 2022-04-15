@@ -19,7 +19,7 @@ public class BankAccountServiceImpl implements BankAccountService{
 
 
     @Override
-    public void newBankAccount(BankAccount bankAccount) {
+    public void saveBankAccount(BankAccount bankAccount) {
         repository.save(bankAccount);
     }
 

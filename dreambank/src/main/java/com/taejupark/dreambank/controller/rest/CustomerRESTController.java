@@ -38,6 +38,6 @@ public class CustomerRESTController {
 
     @PostMapping(version)
     public void newCustomer(@RequestBody Customer newCustomer) {
-        customerService.newCustomer(newCustomer);
+        customerService.saveCustomer(newCustomer);
     }
 }

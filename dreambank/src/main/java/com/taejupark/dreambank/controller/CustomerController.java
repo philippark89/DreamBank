@@ -43,7 +43,7 @@ public class CustomerController {
             return "newCustomer";
         }
         customer.setBankAccount(new BankAccount());
-        cs.newCustomer(customer);
+        cs.saveCustomer(customer);
 
         return "redirect:/admin/customers";
     }
