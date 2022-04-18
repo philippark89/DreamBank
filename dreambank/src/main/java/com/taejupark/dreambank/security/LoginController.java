@@ -25,20 +25,7 @@ public class LoginController {
         return "login";
     }
 
-    @GetMapping("/main") // -> actual domain name
-    public String mainPage(Principal principal, Model model) {
-        String url = "/user/postLogin";
 
-        try {
-            User user = userRepository.findByEmail(principal.getName());
-            model.addAttribute("email", principal.getName());
-            model.addAttribute("firstname", user.getFirstName());
-        } catch (NullPointerException e) {
-            url = "/admin/adminMain";
-        }
-
-        return url; // -> matching html file name
-    }
 
     @GetMapping("/logout")
     public String logout(HttpServletRequest request) {
