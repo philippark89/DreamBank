@@ -11,7 +11,6 @@ import java.util.List;
 @Primary
 public class CustomerServiceImpl implements CustomerService {
     private CustomerRepository customerRepository;
-    private Customer customer;
 
     @Autowired
     public CustomerServiceImpl(CustomerRepository customerRepository) {

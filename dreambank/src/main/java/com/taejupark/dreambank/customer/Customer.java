@@ -1,9 +1,8 @@
 package com.taejupark.dreambank.customer;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.taejupark.dreambank.bankAccount.BankAccount;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Objects;
@@ -21,6 +20,14 @@ public class Customer {
     private String lastName;
     @NotNull
     private Date createdDate = new Date();
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "bank_account_id", referencedColumnName = "id")
+    private BankAccount bankAccount;
+
+    public BankAccount getBankAccount() {
+        return bankAccount;
+    }
 
     public Customer() {}
 
@@ -64,17 +71,21 @@ public class Customer {
         this.lastName = lastName;
     }
 
+    public void setBankAccount(BankAccount bankAccount) {
+        this.bankAccount = bankAccount;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return id == customer.id && Objects.equals(email, customer.email) && Objects.equals(firstName, customer.firstName) && Objects.equals(lastName, customer.lastName) && Objects.equals(createdDate, customer.createdDate);
+        return id == customer.id && Objects.equals(email, customer.email) && Objects.equals(firstName, customer.firstName) && Objects.equals(lastName, customer.lastName) && Objects.equals(createdDate, customer.createdDate) && Objects.equals(bankAccount, customer.bankAccount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, email, firstName, lastName, createdDate);
+        return Objects.hash(id, email, firstName, lastName, createdDate, bankAccount);
     }
 
     @Override
@@ -85,6 +96,7 @@ public class Customer {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", createdDate=" + createdDate +
+                ", bankAccount=" + bankAccount +
                 '}';
     }
 }

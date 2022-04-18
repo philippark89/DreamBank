@@ -24,7 +24,7 @@ public class AccountPageController {
 
     @GetMapping("/user/account") // -> Domain name
     public String account(Principal principal, Model model) {
-        String email = principal.getName();
+        String email = principal.getName(); // -> email
         Customer customer = customerService.getCustomerByEmail(email);
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(customer.getCreatedDate());

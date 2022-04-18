@@ -22,6 +22,7 @@ public class MainPageController {
     public String mainPage(Principal principal, Model model) {
         String url = "/user/postLogin";
 
+        // check if user role is admin or not
         try {
             Customer customer = customerService.getCustomerByEmail(principal.getName());
             model.addAttribute("firstname", customer.getFirstName());

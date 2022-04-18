@@ -25,8 +25,6 @@ public class LoginController {
         return "login";
     }
 
-
-
     @GetMapping("/logout")
     public String logout(HttpServletRequest request) {
         HttpSession httpSession = request.getSession();
