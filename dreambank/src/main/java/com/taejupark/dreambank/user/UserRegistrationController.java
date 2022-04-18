@@ -2,6 +2,8 @@ package com.taejupark.dreambank.user;
 
 import javax.validation.Valid;
 
+import com.taejupark.dreambank.customer.Customer;
+import com.taejupark.dreambank.customer.CustomerService;
 import com.taejupark.dreambank.user.User;
 import com.taejupark.dreambank.security.UserRegistrationDto;
 //import com.taejupark.dreambank.service.CustomerService;
@@ -22,8 +24,8 @@ public class UserRegistrationController {
     @Autowired
     private UserService userService;
 
-//    @Autowired
-//    private CustomerService customerService;
+    @Autowired
+    private CustomerService customerService;
 
     @ModelAttribute("user")
     public UserRegistrationDto userRegistrationDto() {
@@ -37,7 +39,6 @@ public class UserRegistrationController {
 
     @PostMapping
     public String registerUserAccount(@ModelAttribute("user") @Valid UserRegistrationDto userDto, BindingResult result){
-
         User existing = userService.findByEmail(userDto.getEmail());
         if (existing != null){
             result.rejectValue("email", null, "There is already an account registered with that email");
@@ -48,12 +49,20 @@ public class UserRegistrationController {
         }
 
         User user = userService.save(userDto);
+        customerService.saveCustomer(createCustomerFromUserDTO(userDto, user.getId()));
+
 //        customerService.newCustomer(createCustomerFromUserDTO(userDto, user.getId()));
         return "redirect:/registration?success";
     }
 
-//    private Customer createCustomerFromUserDTO(UserRegistrationDto userDto, Long id) {
-//        // initialize the customer entity when user create the account
+    private Customer createCustomerFromUserDTO(UserRegistrationDto userDto, Long id) {
+        // initialize the customer entity when user create the account
+        Customer customer = new Customer();
+
+        customer.setEmail(userDto.getEmail());
+        customer.setFirstName(userDto.getFirstName());
+        customer.setLastName(userDto.getLastName());
+
 //        Random random = new Random();
 //        Customer customer = new Customer();
 //        BankAccount bankAccount = new BankAccount();
@@ -67,8 +76,8 @@ public class UserRegistrationController {
 //        customer.setCreatedDate(new Date());
 //        customer.setId(id);
 //        customer.setBankAccount(bankAccount);
-//
-//        return customer;
-//    }
+
+        return customer;
+    }
 }
 
