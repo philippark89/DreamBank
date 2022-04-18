@@ -1,4 +1,4 @@
-package com.taejupark.dreambank.user;
+package com.taejupark.dreambank.security;
 
 import com.taejupark.dreambank.user.User;
 import com.taejupark.dreambank.user.UserRepository;

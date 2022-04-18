@@ -1,5 +1,7 @@
 package com.taejupark.dreambank.user;
 
+import com.taejupark.dreambank.security.Role;
+
 import javax.persistence.*;
 import java.util.Collection;
 
