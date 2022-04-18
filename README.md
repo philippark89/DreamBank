@@ -3,11 +3,11 @@
 ## Author: Taeju Park
 
 ## Contents
-- [Developement Enviroment](#development-environment)
+- [Develop Enviroment](#develop-environment)
 - [App Description](#app-description)
 - [Daily Progress](#Daily-Progress)
 
-# Development Environment
+# Develop Environment
 - Back-end
     - Spring Boot
     - REST API
