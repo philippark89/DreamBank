@@ -94,3 +94,8 @@
     - Account page done.
     - Balance page, manage to pull transaction object throught user input from balance page.
     - Learned how the Thymeleaf communicate between MVC.
+
+- 04/18/2022 (Day 12) (BackEnd 92%, FrontEnd 70%)
+    - Balance page 90% done.
+    - Transaction function added and working okay so far.
+    - Working Activity page throught transactions.
