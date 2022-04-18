@@ -73,15 +73,15 @@
             <tbody>
             <tr class="table-secondary">
                 <th scope="row">First Name: </th>
-                <td th:text="${userFirstName}"></td>
+                <td th:text="${customer.getFirstName()}"></td>
             </tr>
             <tr class="table-info">
                 <th scope="row">Last Name: </th>
-                <td th:text="${userLastName}"></td>
+                <td th:text="${customer.getLastName()}"></td>
             </tr>
             <tr class="table-secondary">
                 <th scope="row">Email: </th>
-                <td th:text="${userEmail}"></td>
+                <td th:text="${customer.getEmail()}"></td>
             </tr>
             <tr class="table-info">
                 <th scope="row">Join Date: </th>
@@ -90,7 +90,7 @@
             <tr class="table-secondary">
                 <th scope="row">Action:</th>
                 <td rowspan="2">
-                    <a class="btn btn-primary">Update</a>
+                    <a th:href="@{/user/updateCustomer/{id}(id=${customer.id})}" class="btn btn-primary">Update</a>
                 </td>
 
             </tr>

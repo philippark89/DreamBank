@@ -1,8 +1,5 @@
 package com.taejupark.dreambank.customer;
 
-import com.taejupark.dreambank.bankAccount.BankAccount;
-import org.hibernate.dialect.CUBRIDDialect;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
