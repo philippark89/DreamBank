@@ -1,7 +1,7 @@
-package com.taejupark.dreambank.controller;
+package com.taejupark.dreambank.user;
 
-import com.taejupark.dreambank.model.User;
-import com.taejupark.dreambank.repository.UserRepository;
+import com.taejupark.dreambank.user.User;
+import com.taejupark.dreambank.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
-import java.util.Objects;
 
 @Controller
 public class LoginController {

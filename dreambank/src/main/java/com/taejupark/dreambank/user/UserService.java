@@ -1,6 +1,5 @@
-package com.taejupark.dreambank.service;
+package com.taejupark.dreambank.user;
 
-import com.taejupark.dreambank.model.User;
 import com.taejupark.dreambank.security.UserRegistrationDto;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
