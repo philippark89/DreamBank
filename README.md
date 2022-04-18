@@ -5,7 +5,7 @@
 ## Contents
 - [Developement Enviroment](#development-environment)
 - [App Description](#app-description)
-- [Develope Log](#dev-logs)
+- [Daily Progress](#Daily-Progress)
 
 # Development Environment
 - Back-end
@@ -28,7 +28,7 @@
     - Login
     - (TBD)
 
-# Dev Logs
+# Daily Progress
 - 04/04/2022 (Day 1)
     - Initialized the project with Spring Boot
     - Designed the models
