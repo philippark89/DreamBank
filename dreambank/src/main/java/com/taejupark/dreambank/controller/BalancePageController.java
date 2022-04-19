@@ -21,10 +21,6 @@ import java.security.Principal;
 public class BalancePageController {
     @Autowired
     private CustomerService customerService;
-
-    @Autowired
-    private CustomerRepository customerRepository;
-
     @Autowired
     private TransactionService transactionService;
 
@@ -32,10 +28,7 @@ public class BalancePageController {
     public String balance(Principal principal, Model model) {
         String email = principal.getName(); // return -> email
         Customer customer = customerService.getCustomerByEmail(email);
-        BankAccount bankAccount = customer.getBankAccount();
-
         double getBalance = customer.getBankAccount().getBalance();
-
 
         model.addAttribute("customerId", customer.getId());
         model.addAttribute("getBalance", getBalance);
@@ -47,14 +40,16 @@ public class BalancePageController {
     @PostMapping("/user/balance/{id}")
     public String updateBalance(@PathVariable long id, @ModelAttribute Transaction transaction) {
 
+        // fetch currently logged in customer and add transaction to list.
         Customer customer = customerService.getCustomerById(id);
         customer.getBankAccount().getTransaction().add(transaction);
+
+        // save both transaction and customer objects (updated)
         transactionService.saveTransaction(transaction);
         customerService.saveCustomer(customer);
 
-        System.out.println(customer);
+        // console
         System.out.println(transaction);
-        System.out.println(id);
 
         return "redirect:/user/balance";
     }

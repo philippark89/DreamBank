@@ -1,5 +1,6 @@
 package com.taejupark.dreambank.controller;
 
+import com.taejupark.dreambank.bankAccount.BankAccountService;
 import com.taejupark.dreambank.customer.Customer;
 import com.taejupark.dreambank.customer.CustomerRepository;
 import com.taejupark.dreambank.customer.CustomerService;
@@ -20,7 +21,7 @@ public class AccountPageController {
     private CustomerService customerService;
 
     @Autowired
-    private CustomerRepository customerRepository;
+    private BankAccountService bankAccountService;
 
     @GetMapping("/user/account") // -> Domain name
     public String account(Principal principal, Model model) {
@@ -40,7 +41,7 @@ public class AccountPageController {
 
     @PostMapping("/user/saveCustomer")
     public String saveCustomer(@ModelAttribute Customer customer) {
-        customerRepository.save(customer);
+        customerService.saveCustomer(customer);
 
         return "redirect:/user/account";
     }
