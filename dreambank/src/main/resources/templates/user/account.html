@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <title>Dream Bank</title>
     <meta charset="utf-8">
@@ -60,7 +63,7 @@
 
 <!-- main container -->
 <div class="container">
-    <div class="content text-center" style="height:200px">
+    <div class="content text-center" style="height:120px">
         <h1 class="text-center text-dark">Customer Information</h1>
         <!--  font-size: 500px  -->
         <table border="2" class="table table-bordered w-auto" style="margin: auto">
@@ -70,15 +73,15 @@
             <tbody>
             <tr class="table-secondary">
                 <th scope="row">First Name: </th>
-                <td th:text="${userFirstName}"></td>
+                <td th:text="${customer.getFirstName()}"></td>
             </tr>
             <tr class="table-info">
                 <th scope="row">Last Name: </th>
-                <td th:text="${userLastName}"></td>
+                <td th:text="${customer.getLastName()}"></td>
             </tr>
             <tr class="table-secondary">
                 <th scope="row">Email: </th>
-                <td th:text="${userEmail}"></td>
+                <td th:text="${customer.getEmail()}"></td>
             </tr>
             <tr class="table-info">
                 <th scope="row">Join Date: </th>
@@ -87,7 +90,7 @@
             <tr class="table-secondary">
                 <th scope="row">Action:</th>
                 <td rowspan="2">
-                    <a class="btn btn-primary">Update</a>
+                    <a th:href="@{/user/updateCustomer/{id}(id=${customer.id})}" class="btn btn-primary">Update</a>
                 </td>
 
             </tr>

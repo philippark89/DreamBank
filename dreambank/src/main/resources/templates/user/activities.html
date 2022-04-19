@@ -60,8 +60,26 @@
 
 <!-- main container -->
 <div class="container">
-    <div class="content text-center" style="height:200px">
-        <p>Activities page</p>
+    <div class="content text-center" style="height:120px">
+        <h1 class="text-warning">Total <td th:text="${#lists.size(transactions)}"></td> transaction(s) found</h1>
+        <div th:if="${not#lists.isEmpty(transactions)}">
+            <table class="table table-bordered w-auto" style="margin: auto">
+                <tr>
+                    <th>No.</th>
+                    <th>Amount</th>
+                    <th>Transaction Type</th>
+                    <th>Transaction Time</th>
+                    <th>Note</th>
+                </tr>
+                <tr th:each="transaction, stat : ${transactions}">
+                    <td th:text="${stat.index + 1}"></td>
+                    <td th:text="${transaction.amount}"></td>
+                    <td th:text="${transaction.transactionType}"></td>
+                    <td th:text="${transaction.transactionTime}"></td>
+                    <td th:text="${transaction.note}"></td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 

@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
 <head>
     <title>Dream Bank</title>
     <meta charset="utf-8">
@@ -63,7 +67,7 @@
     <div class="content text-center" style="height:200px">
 <!--        <h1 class="text-warning" style="font-family: 'Indie Flower', cursive;" >Welcome To Dream Bank</h1>-->
 <!--        <h2 th:text="${email}"></h2>-->
-        <h1>
+        <h1 sec:authorize="hasRole('USER')">
             Welcome <b><span class="text-warning" th:text="${firstname}"></span></b>!
             <br>
             How can we help you today?

@@ -1,6 +1,6 @@
 package com.taejupark.dreambank.security;
 
-import com.taejupark.dreambank.service.UserService;
+import com.taejupark.dreambank.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
