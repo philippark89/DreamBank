@@ -1,0 +1,10 @@
+#tableId {
+    max-height: 452px;
+    overflow-y: scroll;
+}
+
+#topId {
+    position: sticky;
+    top: 0px;
+    background-color: #37ff00;
+}

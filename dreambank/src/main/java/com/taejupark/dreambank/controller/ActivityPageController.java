@@ -29,10 +29,6 @@ public class ActivityPageController {
 
         model.addAttribute("transactions", transactions);
 
-//        System.out.println(transactions);
-//        System.out.println();
-//        System.out.println(transactionService.getAllTransactions());
-
         return "/user/activities";
     }
 }

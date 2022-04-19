@@ -14,6 +14,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- css -->
     <link rel="stylesheet" href="/css/backgrounds.css">
+    <link rel="stylesheet" href="/css/dataTable.css">
+
+    <!-- DATA TABLE   -->
+    <script defer src="/javascript/pageable.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
 </head>
 <body>
 
@@ -62,9 +69,9 @@
 <div class="container">
     <div class="content text-center" style="height:120px">
         <h1 class="text-warning">Total <td th:text="${#lists.size(transactions)}"></td> transaction(s) found</h1>
-        <div th:if="${not#lists.isEmpty(transactions)}">
-            <table class="table table-bordered w-auto" style="margin: auto">
-                <tr>
+        <div id="tableId" th:if="${not#lists.isEmpty(transactions)}">
+            <table id="activityTable" class="table table-dark table-striped w-auto" style="margin: auto">
+                <tr id="topId">
                     <th>No.</th>
                     <th>Amount</th>
                     <th>Transaction Type</th>

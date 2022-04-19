@@ -42,11 +42,25 @@ public class BalancePageController {
 
         // fetch currently logged in customer and add transaction to list.
         Customer customer = customerService.getCustomerById(id);
-        customer.getBankAccount().getTransaction().add(transaction);
+        double currentBalance = customer.getBankAccount().getBalance();
+        double transactionAmount = transaction.getAmount();
 
-        // save both transaction and customer objects (updated)
-        transactionService.saveTransaction(transaction);
-        customerService.saveCustomer(customer);
+
+
+        if ((transaction.getTransactionType().equals("withdraw")) && currentBalance >= transactionAmount) {
+            customer.getBankAccount().setBalance(currentBalance - transactionAmount);
+            // save both transaction and customer objects (updated)
+            customer.getBankAccount().getTransaction().add(transaction);
+            transactionService.saveTransaction(transaction);
+            customerService.saveCustomer(customer);
+        } else if (transaction.getTransactionType().equals("deposit")) {
+            customer.getBankAccount().setBalance(currentBalance + transactionAmount);
+            customer.getBankAccount().getTransaction().add(transaction);
+            transactionService.saveTransaction(transaction);
+            customerService.saveCustomer(customer);
+        } else {
+            System.out.println("transaction failed");
+        }
 
         // console
         System.out.println(transaction);

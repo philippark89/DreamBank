@@ -76,11 +76,11 @@
                 </select>
                 <div class="input-group mb-3 mt-3">
                     <span class="input-group-text">$</span>
-                    <input name="dollars" th:field="*{amount}"
-                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                           type = "number"
-                           maxlength = "5" id="balanceAmount" aria-label="Amount (to the nearest dollar)">
-                    <span class="input-group-text">.00</span>
+                    <input name="dollars" th:field="*{amount}" placeholder="Amount" type="number" step="0.01"
+                           maxlength = "6" id="balanceAmount" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+<!--                    aria-label="Amount (to the nearest dollar)"-->
+<!--                    <span class="input-group-text">.00</span>-->
+
                 </div>
                 <div class="input-group">
                     <span class="input-group-text">Note</span>
