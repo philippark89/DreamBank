@@ -7,7 +7,7 @@
 - [App Description](#app-description)
 - [Develope Log](#dev-logs)
 
-# Development Environment
+# Develop Environment
 - Back-end
     - Spring Boot
     - REST API
@@ -28,7 +28,7 @@
     - Login
     - (TBD)
 
-# Dev Logs
+# Daily Progress
 - 04/04/2022 (Day 1)
     - Initialized the project with Spring Boot
     - Designed the models
