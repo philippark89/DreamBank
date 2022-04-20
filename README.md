@@ -3,9 +3,9 @@
 ## Author: Taeju Park
 
 ## Contents
-- [Developement Enviroment](#development-environment)
+- [Develop Environment](#develop-environment)
 - [App Description](#app-description)
-- [Develope Log](#dev-logs)
+- [Daily Progress](#daily-progress)
 
 # Develop Environment
 - Back-end
