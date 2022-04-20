@@ -15,7 +15,9 @@
 
 - Front-end
     - HTML/CSS(Bootstrap 5)
-    - React(Trying to apply it from previous work)
+    - Thymeleaf
+    - JavaScript
+    - ~~React(Trying to apply it from previous work)~~
 
 # App Description
 ## Banking App
@@ -32,7 +34,7 @@
 - 04/04/2022 (Day 1)
     - Initialized the project with Spring Boot
     - Designed the models
-        - Customer, BankAccount, Transaction, and Login(TBD)
+    - Customer, BankAccount, Transaction, and Login(TBD)
     - Find the resources
 
 - 04/05/2022 (Day 2)
@@ -106,3 +108,10 @@
     - Activity page, transactions are displaying as in Table by 10 items at once.
     - Working in Admin view.
     - REST API.
+    
+- 04/20/2022 (Day 14) (BackEnd 98%, FrontEnd 95%)
+    - ADMIN page have menus that REST API, Customers, and Transactions.
+    - REST API shows the structure of entire models
+    - Customers page in ADMIN can either update or delete the specific customer.
+    - Transactions page in ADMIN can either update or delete the specific transaction.
+    - Updated User's balance page that display the current balance with `NumberFormat.getCurrencyInstance()`.
