@@ -99,3 +99,10 @@
     - Balance page 90% done.
     - Transaction function added and working okay so far.
     - Working Activity page throught transactions.
+
+- 04/19/2022 (Day 13) (BackEnd 97%, FrontEnd 90%)
+    - Balance page, available balance is auto updating when transaction is made by user.
+    - Withdraw / deposit is handling on balanceController. (Sometimes it occurs the double type overflow)
+    - Activity page, transactions are displaying as in Table by 10 items at once.
+    - Working in Admin view.
+    - REST API.
