@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
 <head>
     <title>Dream Bank</title>
     <meta charset="utf-8">
@@ -16,11 +20,6 @@
     <link rel="stylesheet" href="/css/backgrounds.css">
     <link rel="stylesheet" href="/css/dataTable.css">
 
-    <!-- DATA TABLE   -->
-    <script defer src="/javascript/pageable.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
-
 </head>
 <body>
 
@@ -36,13 +35,13 @@
             </li>
             <!-- Menu Start -->
             <li class="nav-item">
-                <a class="nav-link" style="font-size: 25px;" href="/user/account">Account</a>
+                <a class="nav-link" style="font-size: 25px;" href="/api/v1/customers/">API</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="font-size: 25px;" href="/user/balance">Balance</a>
+                <a class="nav-link" style="font-size: 25px;" href="/admin/customers">Customers</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link active" style="font-size: 25px;" href="/user/activities">Activities</a>
+            <li class="nav-item active">
+                <a class="nav-link" style="font-size: 25px;" href="/admin/transactions">Transactions</a>
             </li>
             <!-- Menu End -->
         </ul>
@@ -68,8 +67,8 @@
 <!-- main container -->
 <div class="container">
     <div class="content text-center" style="height:120px">
-        <h1 class="text-warning">Total <td th:text="${#lists.size(transactions)}"></td> transaction(s) found in database</h1>
-        <div id="tableId" th:if="${not#lists.isEmpty(transactions)}">
+        <h1 class="text-warning">Total <td th:text="${#lists.size(transactionList)}"></td> transaction(s) found</h1>
+        <div id="tableId" th:if="${not#lists.isEmpty(transactionList)}">
             <table id="activityTable" class="table table-dark table-striped w-auto" style="margin: auto">
                 <tr id="topId">
                     <th>No.</th>
@@ -77,13 +76,23 @@
                     <th>Transaction Type</th>
                     <th>Transaction Time</th>
                     <th>Note</th>
+<!--                    <th>Belongs</th>-->
+                    <th>Action</th>
                 </tr>
-                <tr th:each="transaction, stat : ${transactions}">
+<!--                <tr th:each="bankAccount : ${bankAccountList}">-->
+<!--                    <td th:text="${bankAccount.id}"></td>-->
+<!--                </tr>-->
+                <tr th:each="transaction, stat : ${transactionList}">
                     <td th:text="${stat.index + 1}"></td>
                     <td th:text="${transaction.amount}"></td>
                     <td th:text="${transaction.transactionType}"></td>
                     <td th:text="${transaction.transactionTime}"></td>
                     <td th:text="${transaction.note}"></td>
+<!--                    <td th:text="${transaction}"></td>-->
+                    <td>
+                        <button type="button" class="btn btn-primary">Update</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </td>
                 </tr>
             </table>
         </div>

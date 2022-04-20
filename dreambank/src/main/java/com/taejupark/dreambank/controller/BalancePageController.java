@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.security.Principal;
+import java.text.NumberFormat;
 
 @Controller
 public class BalancePageController {
@@ -26,12 +29,15 @@ public class BalancePageController {
 
     @GetMapping("/user/balance")
     public String balance(Principal principal, Model model) {
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
         String email = principal.getName(); // return -> email
         Customer customer = customerService.getCustomerByEmail(email);
-        double getBalance = customer.getBankAccount().getBalance();
+        BigDecimal balance = new BigDecimal(customer.getBankAccount().getBalance());
+        balance = balance.setScale(2, RoundingMode.CEILING);
+        String formatted = formatter.format(balance);
 
         model.addAttribute("customerId", customer.getId());
-        model.addAttribute("getBalance", getBalance);
+        model.addAttribute("getBalance", formatted);
         model.addAttribute("transaction", new Transaction());
 
         return "/user/balance";
@@ -44,8 +50,6 @@ public class BalancePageController {
         Customer customer = customerService.getCustomerById(id);
         double currentBalance = customer.getBankAccount().getBalance();
         double transactionAmount = transaction.getAmount();
-
-
 
         if ((transaction.getTransactionType().equals("withdraw")) && currentBalance >= transactionAmount) {
             customer.getBankAccount().setBalance(currentBalance - transactionAmount);

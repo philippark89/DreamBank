@@ -2,7 +2,6 @@ package com.taejupark.dreambank.controller;
 
 import com.taejupark.dreambank.bankAccount.BankAccountService;
 import com.taejupark.dreambank.customer.Customer;
-import com.taejupark.dreambank.customer.CustomerRepository;
 import com.taejupark.dreambank.customer.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,6 +34,8 @@ public class AccountPageController {
 
         model.addAttribute("userDate", date);
         model.addAttribute("customer", customer);
+
+        if (customer == null) return "admin/customers";
 
         return "/user/account"; // -> File Location
     }

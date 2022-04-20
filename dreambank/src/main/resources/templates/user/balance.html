@@ -64,7 +64,7 @@
 <!-- main container -->
 <div class="container">
     <div class="content text-center" style="height:120px">
-        <h1>Available Balance: $<td th:text="${getBalance}"></td></h1>
+        <h1>Available Balance: <td th:text="${getBalance}"></td></h1>
         <div class="w-25" style="margin: auto">
             <form th:object="${transaction}" th:action="@{/user/balance/{id}(id=${customerId})}" method="post">
                 <input type="hidden" id="id" th:field="*{id}" />

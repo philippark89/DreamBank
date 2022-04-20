@@ -36,10 +36,10 @@
                 <a class="nav-link" style="font-size: 25px;" href="/api/v1/customers/">API</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="font-size: 25px;" href="#">Customers</a>
+                <a class="nav-link" style="font-size: 25px;" href="/admin/customers">Customers</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="font-size: 25px;" href="#">Transactions</a>
+                <a class="nav-link" style="font-size: 25px;" href="/admin/transactions">Transactions</a>
             </li>
             <!-- Menu End -->
         </ul>
@@ -65,29 +65,15 @@
 <!-- main container -->
 <div class="container">
     <div class="content text-center" style="height:200px">
-        <!--        <h1 class="text-warning" style="font-family: 'Indie Flower', cursive;" >Welcome To Dream Bank</h1>-->
-        <!--        <h2 th:text="${email}"></h2>-->
         <h1 sec:authorize="hasRole('USER')">
-            You are logged in as Admin.<br>
-            What do you need to do?
+            You are logged in as <span class="text-danger">Admin</span><br>
+            What do you need to do? <br><br>
+            <span class="text-warning">API: </span>Go to check the REST API <br>
+            <span class="text-warning">Customers: </span>Manage the customers <br>
+            <span class="text-warning">Transactions: </span>Manage the transactions <br>
         </h1>
     </div>
 </div>
-<!--    </div>-->
-
-<!-- script input to go to other pages -->
-<!--    <script>-->
-<!--      function go() {-->
-<!--        let page = document.getElementById("goInput").value.toLowerCase();-->
-<!--        if (page == "animals") {-->
-<!--          location.href = "/pages/animals.html";-->
-<!--        } else if (page == "tables") {-->
-<!--          location.href = "/pages/tables.html";-->
-<!--        } else {-->
-<!--          alert('type animals or tables');-->
-<!--        }-->
-<!--      }-->
-<!--    </script>-->
 
 </body>
 </html>
