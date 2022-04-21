@@ -31,7 +31,7 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer getCustomerById(long id) {
         Customer customer;
         try {
-            customer = customerRepository.getById(id);
+            customer = customerRepository.findById(id).get();
         } catch (EntityNotFoundException e) {
             throw new CustomerNotFoundException();
         }

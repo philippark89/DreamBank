@@ -1,6 +1,7 @@
 package com.taejupark.dreambank.customer;
 
 import com.taejupark.dreambank.bankAccount.BankAccount;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -23,6 +24,7 @@ public class Customer {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "bank_account_id", referencedColumnName = "id")
+    @JsonIgnore
     private BankAccount bankAccount;
 
     public BankAccount getBankAccount() {
