@@ -4,6 +4,11 @@
 
 # Contents
 - [Develop Environment](#develop-environment)
+    - [Technical Architecture](/img/technical%20architecture.png)   
+    - [Page Flowchart](/img/Page_flowchart.png)
+    - [Schema Diagram](/img/schema%20diagram.png)
+    - [Wire Frame](/img/wireframe.pdf)
+
 - [App Description](#app-description)
 - [User Story](#user-story)
 - [Business Models](#business-models)
@@ -39,11 +44,16 @@
 - User
 - Role
 - ~~(TBD)~~
-## Relationships
 
 
 
 # Daily Progress
+- 04/21/2022 (Day 15) (BackEnd 98%, FrontEnd 98%)
+    - MVP done
+    - Refactoring the codes
+    - Sql data preload (still working on it)
+    - RESTController (working on POST/DELETE mapping)
+
 - 04/20/2022 (Day 14) (BackEnd 98%, FrontEnd 95%)
     - ADMIN page have menus that REST API, Customers, and Transactions.
     - REST API shows the structure of entire models
