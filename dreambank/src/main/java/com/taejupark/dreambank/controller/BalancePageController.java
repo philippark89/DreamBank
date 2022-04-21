@@ -22,12 +22,13 @@ import java.text.NumberFormat;
 
 @Controller
 public class BalancePageController {
+    private final String URL = "/user";
     @Autowired
     private CustomerService customerService;
     @Autowired
     private TransactionService transactionService;
 
-    @GetMapping("/user/balance")
+    @GetMapping(URL + "/balance") // /user/balance
     public String balance(Principal principal, Model model) {
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
         String email = principal.getName(); // return -> email

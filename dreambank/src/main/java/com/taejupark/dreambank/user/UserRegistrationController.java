@@ -5,11 +5,9 @@ import javax.validation.Valid;
 import com.taejupark.dreambank.bankAccount.BankAccount;
 import com.taejupark.dreambank.customer.Customer;
 import com.taejupark.dreambank.customer.CustomerService;
-import com.taejupark.dreambank.transaction.Transaction;
-import com.taejupark.dreambank.user.User;
 import com.taejupark.dreambank.security.UserRegistrationDto;
-//import com.taejupark.dreambank.service.CustomerService;
-import com.taejupark.dreambank.user.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,12 +18,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 @Controller
 @RequestMapping("/registration")
 public class UserRegistrationController {
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private UserService userService;
@@ -56,7 +55,7 @@ public class UserRegistrationController {
 
         User user = userService.save(userDto);
         customerService.saveCustomer(createCustomerFromUserDTO(userDto, user.getId()));
-        System.out.println(customerService.getCustomerById(user.getId()));
+//        System.out.println(customerService.getCustomerById(user.getId()));
         return "redirect:/registration?success";
     }
 
