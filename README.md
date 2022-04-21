@@ -2,9 +2,11 @@
 
 ## Author: Taeju Park
 
-## Contents
+# Contents
 - [Develop Environment](#develop-environment)
 - [App Description](#app-description)
+- [User Story](#user-story)
+- [Business Models](#business-models)
 - [Daily Progress](#daily-progress)
 
 # Develop Environment
@@ -20,17 +22,26 @@
     - ~~React(Will be applied once MVP done)~~
 
 # App Description
-## Banking App
+## Simple Banking App
 - User can create the account to use the functions such as checking balance, create the transaction such as either deposit or withdraw from their balance, and check their transactions.
 
-- Each user have balance will be generated randomly in range of $100 ~ $10,000 when user registered an account.
+- Each user have a balance and it will be generated randomly in range of $100 ~ $10,000 when user registered an account.
 
-- Models
-    - Customer
-    - BankAccount
-    - Transaction
-    - Login
-    - ~~(TBD)~~
+# User Story
+- As a user, I want to create the account so I can have a bank account.
+- As a user, I want to login to my account so I can use my own account.
+
+# Business Models
+## Models
+- Customer
+- BankAccount
+- Transaction
+- User
+- Role
+- ~~(TBD)~~
+## Relationships
+
+
 
 # Daily Progress
 - 04/20/2022 (Day 14) (BackEnd 98%, FrontEnd 95%)
