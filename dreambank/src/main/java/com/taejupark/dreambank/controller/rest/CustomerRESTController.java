@@ -32,7 +32,6 @@ public class CustomerRESTController {
     @GetMapping(version + "{id}")
     public EntityModel<Customer> getCustomerById(@PathVariable("id") long id) {
         Customer customer = customerService.getCustomerById(id);
-
         return customerModelAssembler.toModel(customer);
     }
 

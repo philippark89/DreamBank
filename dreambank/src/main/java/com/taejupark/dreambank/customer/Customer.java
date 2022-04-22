@@ -33,6 +33,13 @@ public class Customer {
 
     public Customer() {}
 
+    public Customer(String email, String firstName, String lastName, BankAccount bankAccount) {
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.bankAccount = bankAccount;
+    }
+
     public long getId() {
         return id;
     }

@@ -27,6 +27,7 @@ public class ActivityPageController {
         Customer customer = customerService.getCustomerByEmail(email);
         List<Transaction> transactions = customer.getBankAccount().getTransaction();
 
+
         model.addAttribute("transactions", transactions);
 
         return "/user/activities";

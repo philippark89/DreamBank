@@ -20,8 +20,14 @@ public class Transaction {
     private Date transactionTime = new Date();
     @NotNull
     private String note;
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    private BankAccount bankAccount;
+
+    public Transaction() {}
+
+    public Transaction(double amount, String transactionType, String note) {
+        this.amount = amount;
+        this.transactionType = transactionType;
+        this.note = note;
+    }
 
     public long getId() {
         return id;

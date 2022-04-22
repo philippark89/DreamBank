@@ -24,6 +24,11 @@ public class BankAccount {
     public BankAccount() {
     }
 
+    public BankAccount(double balance, List<Transaction> transaction) {
+        this.balance = balance;
+        this.transaction = transaction;
+    }
+
     public long getId() {
         return id;
     }
