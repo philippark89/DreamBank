@@ -8,7 +8,7 @@
     - [Page Flowchart](/img/Page_flowchart.png)
     - [Schema Diagram](/img/schema%20diagram.png)
     - [Wire Frame](/img/wireframe.pdf)
-
+- [Case Study Rubric](https://docs.google.com/spreadsheets/d/1SBBuJB4l3o45Fplam5pSzR35PsIaDP4kSBs5LpcZHOk/edit?usp=sharing)
 - [App Description](#app-description)
 - [User Story](#user-story)
 - [Business Models](#business-models)
@@ -48,6 +48,13 @@
 
 
 # Daily Progress
+- 04/22/2022 (Day 16) (BackEnd 99%, FrontEnd 99%)
+    - JUnit able to connect with JPA
+    - todo list:
+        - Create more JUnit cases
+        - Javascript to apply on front side
+        - Create RESTcontroller for POST/DELETE mapping
+
 - 04/21/2022 (Day 15) (BackEnd 98%, FrontEnd 98%)
     - MVP done
     - Refactoring the codes
