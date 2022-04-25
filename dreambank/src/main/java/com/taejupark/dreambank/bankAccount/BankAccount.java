@@ -17,7 +17,7 @@ public class BankAccount {
     private long id;
     @NotNull
     private double balance;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name = "bankAccountId", referencedColumnName = "id")
     private List<Transaction> transaction;
 
