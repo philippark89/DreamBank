@@ -48,6 +48,13 @@
 
 
 # Daily Progress
+- 04/25/2022 (Day 17) (Total 99.9%)
+    - Refactoring codes
+    - Added 8 different Junit cases
+    - Javascript work
+    - Preparing presentation
+    - Double checking if the app has any bugs
+
 - 04/22/2022 (Day 16) (BackEnd 99%, FrontEnd 99%)
     - JUnit able to connect with JPA
     - todo list:
