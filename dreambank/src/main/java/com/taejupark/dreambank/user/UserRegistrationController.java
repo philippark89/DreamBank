@@ -55,7 +55,7 @@ public class UserRegistrationController {
 
         User user = userService.save(userDto);
         customerService.saveCustomer(createCustomerFromUserDTO(userDto, user.getId()));
-//        System.out.println(customerService.getCustomerById(user.getId()));
+        logger.info("Account [" + user.getEmail() + "] has been created!");
         return "redirect:/registration?success";
     }
 

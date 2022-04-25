@@ -2,6 +2,8 @@ package com.taejupark.dreambank.security;
 
 import com.taejupark.dreambank.user.User;
 import com.taejupark.dreambank.user.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,8 @@ import java.security.Principal;
 
 @Controller
 public class LoginController {
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
     private UserRepository userRepository;
 
     @Autowired
@@ -29,6 +33,7 @@ public class LoginController {
     public String logout(HttpServletRequest request) {
         HttpSession httpSession = request.getSession();
         httpSession.invalidate();
+
         return "redirect:/";
     }
 

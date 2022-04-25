@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -61,6 +62,8 @@ public class CustomerServiceSliceTests {
         customerService.saveCustomer(expectedCustomer);
 
         Customer targetCustomer = customerService.getCustomerById(expectedCustomer.getId());
+        System.out.println(expectedCustomer);
+        System.out.println(targetCustomer);
 
         assertThat(expectedCustomer.getId()).isEqualTo(targetCustomer.getId());
     }

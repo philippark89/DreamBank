@@ -21,9 +21,4 @@ public class DreamBankApplication {
 	public CommandLineRunner webApplicationStartMessage() {
 		return args -> logger.info("DreamBank web application got started!");
 	}
-
-	@Bean
-	public CommandLineRunner addAdminRoles() {
-		return null;
-	}
 }
