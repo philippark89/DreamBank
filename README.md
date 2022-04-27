@@ -48,6 +48,10 @@
 
 
 # Daily Progress
+- 04/26/2022 (Day 18) (Deployed)
+    - Refactoring codes
+    - Test functions
+
 - 04/25/2022 (Day 17) (Total 99.9%)
     - Refactoring codes
     - Added 8 different Junit cases
