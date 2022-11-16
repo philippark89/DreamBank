@@ -1,2 +1,5 @@
-# git for-each-ref --sort=-committerdate refs/heads/
-git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+for branch in $(git branch --format="%(refname:short)" --merged main); do 
+  if (($(git log -1 --since='2 month ago' -s $branch|wc -l)==0)); then
+    echo git branch -d $branch
+  fi
+done
